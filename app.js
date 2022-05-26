@@ -35,6 +35,7 @@ const addListenerToDeletes = () => {
       tasksList = tasksList.filter((task) => task.id != idTask);
       generateTasks(tasksList);
       addListenerToDeletes();
+      addListenerToEdits();
     });
   });
 };
@@ -75,8 +76,8 @@ btnSave.addEventListener("click", (e) => {
       btnSave.innerText = "Save";
       editMode = false;
     }
-    generateTasks(tasksList);
     textareaDetail.value = "";
+    generateTasks(tasksList);
     addListenerToDeletes();
     addListenerToEdits();
   }
